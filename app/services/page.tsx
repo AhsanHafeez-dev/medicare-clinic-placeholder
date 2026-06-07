@@ -44,12 +44,12 @@ export default function ServicesPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-gradient-to-br from-gray-50 to-primary-light py-20 sm:py-28">
+      <section className="bg-gradient-to-br dark:from-gray-900 dark:via-gray-800 dark:to-primary/20 from-gray-50 to-primary-light py-20 sm:py-28">
         <div className="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-          <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+          <h1 className="text-4xl font-bold tracking-tight text-text-primary sm:text-5xl">
             Our Services
           </h1>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-600">
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-text-secondary">
             Comprehensive medical services designed to meet all your healthcare
             needs under one roof.
           </p>
@@ -57,13 +57,13 @@ export default function ServicesPage() {
       </section>
 
       {/* Services Grid */}
-      <section className="bg-white py-20">
+      <section className="bg-bg-primary py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {servicesList.map((service) => (
               <div
                 key={service.title}
-                className="group overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg"
+                className="group overflow-hidden rounded-2xl border border-border-default bg-bg-primary shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg"
               >
                 <div className="relative h-48 overflow-hidden">
                   <Image
@@ -76,10 +76,10 @@ export default function ServicesPage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-lg font-semibold text-gray-900">
+                  <h3 className="text-lg font-semibold text-text-primary">
                     {service.title}
                   </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-gray-500">
+                  <p className="mt-2 text-sm leading-relaxed text-text-muted">
                     {service.desc}
                   </p>
                 </div>
@@ -90,13 +90,13 @@ export default function ServicesPage() {
       </section>
 
       {/* Why Choose Our Services */}
-      <section className="bg-gray-50 py-20">
+      <section className="bg-bg-secondary py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900">
+            <h2 className="text-3xl font-bold tracking-tight text-text-primary">
               Why Our Services Stand Out
             </h2>
-            <p className="mt-2 text-gray-600">
+            <p className="mt-2 text-text-secondary">
               We combine expertise, technology, and compassion
             </p>
           </div>
@@ -130,12 +130,12 @@ export default function ServicesPage() {
                 ),
               },
             ].map((item) => (
-              <div key={item.title} className="rounded-2xl border border-gray-200 bg-white p-8 text-center shadow-sm">
-                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary-light text-primary">
+              <div key={item.title} className="rounded-2xl border border-border-default bg-bg-primary p-8 text-center shadow-sm">
+                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary-light dark:bg-primary-dark/30 text-primary">
                   {item.icon}
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900">{item.title}</h3>
-                <p className="mt-2 text-sm text-gray-500">{item.desc}</p>
+                <h3 className="text-lg font-semibold text-text-primary">{item.title}</h3>
+                <p className="mt-2 text-sm text-text-muted">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -154,7 +154,7 @@ export default function ServicesPage() {
           </p>
           <div className="mt-8">
             <a href="/contact"
-              className="inline-flex items-center gap-2 rounded-full bg-white px-8 py-3 text-sm font-semibold text-primary shadow-md transition-all hover:bg-gray-100 hover:shadow-lg"
+              className="inline-flex items-center gap-2 rounded-full bg-white px-8 py-3 text-sm font-semibold text-primary whitespace-nowrap shadow-md transition-all hover:bg-gray-100 hover:shadow-lg"
             >
               Get In Touch
               <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">

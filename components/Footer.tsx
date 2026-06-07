@@ -26,7 +26,7 @@ const footerLinks = {
 
 export default function Footer() {
   return (
-    <footer className="border-t border-gray-200 bg-gray-50">
+    <footer className="border-t border-border-default bg-bg-secondary">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
@@ -35,11 +35,11 @@ export default function Footer() {
               <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-primary-dark text-white text-sm font-bold">
                 +
               </div>
-              <span className="text-lg font-bold tracking-tight text-gray-900">
+              <span className="text-lg font-bold tracking-tight text-text-primary">
                 Medi<span className="text-primary">Care</span>
               </span>
             </a>
-            <p className="text-sm leading-relaxed text-gray-500">
+            <p className="text-sm leading-relaxed text-text-muted">
               Providing compassionate, high-quality healthcare to our community
               for over 20 years. Your health is our priority.
             </p>
@@ -49,7 +49,7 @@ export default function Footer() {
                   <a
                     key={social}
                     href="#"
-                    className="flex h-8 w-8 items-center justify-center rounded-full bg-gray-200 text-gray-500 transition-colors hover:bg-primary hover:text-white"
+                    className="flex h-8 w-8 items-center justify-center rounded-full bg-bg-tertiary text-text-muted transition-colors hover:bg-primary hover:text-white"
                     aria-label={social}
                   >
                     <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
@@ -63,14 +63,14 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-gray-900">
+            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-text-primary">
               Quick Links
             </h3>
             <ul className="space-y-2.5">
               {footerLinks.QuickLinks.map((link) => (
                 <li key={link.label}>
                   <a href={link.href}
-                    className="text-sm text-gray-500 transition-colors hover:text-primary"
+                    className="text-sm text-text-muted transition-colors hover:text-primary"
                   >
                     {link.label}
                   </a>
@@ -81,14 +81,14 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-gray-900">
+            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-text-primary">
               Our Services
             </h3>
             <ul className="space-y-2.5">
               {footerLinks.Services.map((link) => (
                 <li key={link.label}>
                   <a href={link.href}
-                    className="text-sm text-gray-500 transition-colors hover:text-primary"
+                    className="text-sm text-text-muted transition-colors hover:text-primary"
                   >
                     {link.label}
                   </a>
@@ -99,14 +99,14 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-gray-900">
+            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-text-primary">
               Contact Info
             </h3>
             <ul className="space-y-2.5">
               {footerLinks.Contact.map((item) => (
                 <li
                   key={item.label}
-                  className="text-sm text-gray-500"
+                  className="text-sm text-text-muted"
                 >
                   {item.label}
                 </li>
@@ -115,8 +115,8 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-10 border-t border-gray-200 pt-6 text-center">
-          <p className="text-xs text-gray-400">
+        <div className="mt-10 border-t border-border-default pt-6 text-center">
+          <p className="text-xs text-text-muted">
             &copy; {new Date().getFullYear()} MediCare Clinic. All rights
             reserved.
           </p>

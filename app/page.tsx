@@ -50,19 +50,19 @@ export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-gray-50 via-white to-primary-light">
+      <section className="relative overflow-hidden bg-gradient-to-br dark:from-gray-900 dark:via-gray-800 dark:to-primary/20 from-gray-50 via-white to-primary-light">
         <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <div className="space-y-8">
-              <div className="inline-flex items-center rounded-full border border-primary/20 bg-primary-light/50 px-4 py-1.5 text-sm font-medium text-primary-dark">
+              <div className="inline-flex items-center rounded-full border border-primary/20 bg-primary-light/50 dark:bg-primary-dark/20 px-4 py-1.5 text-sm font-medium dark:text-primary-light text-primary-dark">
                 <span className="mr-2 flex h-2 w-2 rounded-full bg-primary"></span>
                 Your Trusted Healthcare Partner
               </div>
-              <h1 className="text-4xl font-bold leading-tight tracking-tight text-gray-900 sm:text-5xl lg:text-6xl">
+              <h1 className="text-4xl font-bold leading-tight tracking-tight text-gray-900 dark:text-white sm:text-5xl lg:text-6xl">
                 Your Health Is Our{" "}
                 <span className="text-primary">Top Priority</span>
               </h1>
-              <p className="max-w-lg text-lg leading-relaxed text-gray-600">
+              <p className="max-w-lg text-lg leading-relaxed text-gray-600 dark:text-gray-300">
                 At MediCare Clinic, we provide comprehensive medical care with
                 compassion and expertise. Our team of experienced doctors is
                 dedicated to your well-being.
@@ -70,13 +70,13 @@ export default function Home() {
               <div className="flex flex-wrap gap-4">
                 <a
                   href="/contact"
-                  className="rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white shadow-md transition-all hover:bg-primary-dark hover:shadow-lg"
+                  className="inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white whitespace-nowrap shadow-md transition-all hover:bg-primary-dark hover:shadow-lg"
                 >
                   Book Appointment
                 </a>
                 <a
                   href="/services"
-                  className="rounded-full border border-gray-300 bg-white px-6 py-3 text-sm font-semibold text-gray-700 shadow-sm transition-all hover:border-gray-400 hover:bg-gray-50"
+                  className="inline-flex items-center justify-center rounded-full border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-6 py-3 text-sm font-semibold text-gray-700 dark:text-gray-200 whitespace-nowrap shadow-sm transition-all hover:border-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700"
                 >
                   Our Services
                 </a>
@@ -97,11 +97,11 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="absolute -bottom-1 left-0 right-0 h-16 bg-gradient-to-t from-white to-transparent"></div>
+        <div className="absolute -bottom-1 left-0 right-0 h-16 bg-gradient-to-t from-white dark:from-gray-900 to-transparent"></div>
       </section>
 
       {/* Stats Section */}
-      <section className="bg-white py-12">
+      <section className="bg-bg-primary py-12">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
             {stats.map((stat) => (
@@ -109,7 +109,7 @@ export default function Home() {
                 <div className="text-3xl font-bold text-primary sm:text-4xl">
                   {stat.value}
                 </div>
-                <div className="mt-1 text-sm text-gray-500">{stat.label}</div>
+                <div className="mt-1 text-sm text-text-muted">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -117,13 +117,13 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section className="bg-gray-50 py-20 sm:py-28">
+      <section className="bg-bg-secondary py-20 sm:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            <h2 className="text-3xl font-bold tracking-tight text-text-primary sm:text-4xl">
               Our Medical Services
             </h2>
-            <p className="mt-4 text-lg text-gray-600">
+            <p className="mt-4 text-lg text-text-secondary">
               Comprehensive healthcare services tailored to your needs with
               state-of-the-art medical technology.
             </p>
@@ -132,15 +132,15 @@ export default function Home() {
             {services.map((service) => (
               <div
                 key={service.title}
-                className="group rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition-all hover:-translate-y-1 hover:border-primary/30 hover:shadow-lg"
+                className="group rounded-2xl border border-border-default bg-bg-primary p-6 shadow-sm transition-all hover:-translate-y-1 hover:border-primary/30 hover:shadow-lg"
               >
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-primary-light text-primary transition-colors group-hover:bg-primary group-hover:text-white">
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-primary-light dark:bg-primary-dark/30 text-primary transition-colors group-hover:bg-primary group-hover:text-white">
                   {service.icon}
                 </div>
-                <h3 className="mb-2 text-lg font-semibold text-gray-900">
+                <h3 className="mb-2 text-lg font-semibold text-text-primary">
                   {service.title}
                 </h3>
-                <p className="text-sm leading-relaxed text-gray-500">
+                <p className="text-sm leading-relaxed text-text-muted">
                   {service.description}
                 </p>
               </div>
@@ -161,7 +161,7 @@ export default function Home() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="bg-white py-20 sm:py-28">
+      <section className="bg-bg-primary py-20 sm:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <div className="relative h-[400px] overflow-hidden rounded-2xl shadow-xl">
@@ -174,7 +174,7 @@ export default function Home() {
               />
             </div>
             <div className="space-y-6">
-              <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+              <h2 className="text-3xl font-bold tracking-tight text-text-primary sm:text-4xl">
                 Why Choose MediCare?
               </h2>
               <div className="space-y-4">
@@ -197,14 +197,14 @@ export default function Home() {
                   },
                 ].map((item) => (
                   <div key={item.title} className="flex gap-4">
-                    <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary-light">
+                    <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary-light dark:bg-primary-dark/30">
                       <svg className="h-3.5 w-3.5 text-primary" fill="none" viewBox="0 0 24 24" strokeWidth="3" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                       </svg>
                     </div>
                     <div>
-                      <h3 className="font-semibold text-gray-900">{item.title}</h3>
-                      <p className="text-sm text-gray-500">{item.desc}</p>
+                      <h3 className="font-semibold text-text-primary">{item.title}</h3>
+                      <p className="text-sm text-text-muted">{item.desc}</p>
                     </div>
                   </div>
                 ))}
@@ -227,13 +227,13 @@ export default function Home() {
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <a
               href="/contact"
-              className="rounded-full bg-white px-8 py-3 text-sm font-semibold text-primary shadow-md transition-all hover:bg-gray-100 hover:shadow-lg"
+              className="inline-flex items-center justify-center rounded-full bg-white px-8 py-3 text-sm font-semibold text-primary whitespace-nowrap shadow-md transition-all hover:bg-gray-100 hover:shadow-lg"
             >
               Book Appointment
             </a>
             <a
               href="/doctors"
-              className="rounded-full border border-white/30 px-8 py-3 text-sm font-semibold text-white transition-all hover:bg-white/10"
+              className="inline-flex items-center justify-center rounded-full border border-white/30 px-8 py-3 text-sm font-semibold text-white whitespace-nowrap transition-all hover:bg-white/10"
             >
               Meet Our Doctors
             </a>

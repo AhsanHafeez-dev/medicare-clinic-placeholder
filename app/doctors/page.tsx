@@ -64,12 +64,12 @@ export default function DoctorsPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-gradient-to-br from-gray-50 to-primary-light py-20 sm:py-28">
+      <section className="bg-gradient-to-br dark:from-gray-900 dark:via-gray-800 dark:to-primary/20 from-gray-50 to-primary-light py-20 sm:py-28">
         <div className="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-          <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+          <h1 className="text-4xl font-bold tracking-tight text-text-primary sm:text-5xl">
             Our Doctors
           </h1>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-600">
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-text-secondary">
             Meet our team of highly skilled and compassionate medical
             professionals dedicated to your health.
           </p>
@@ -77,16 +77,16 @@ export default function DoctorsPage() {
       </section>
 
       {/* Specialties Filter */}
-      <section className="border-b border-gray-200 bg-white py-6">
+      <section className="border-b border-border-default bg-bg-primary py-6">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center justify-center gap-2">
-            <span className="text-sm font-medium text-gray-500 mr-2">
+            <span className="text-sm font-medium text-text-muted mr-2">
               Specialties:
             </span>
             {specialties.map((spec) => (
               <span
                 key={spec}
-                className="rounded-full border border-primary/20 bg-primary-light/50 px-3.5 py-1.5 text-xs font-medium text-primary-dark"
+                className="rounded-full border border-primary/20 bg-primary-light/50 dark:bg-primary-dark/30 px-3.5 py-1.5 text-xs font-medium dark:text-primary-light text-primary-dark"
               >
                 {spec}
               </span>
@@ -96,13 +96,13 @@ export default function DoctorsPage() {
       </section>
 
       {/* Doctors Grid */}
-      <section className="bg-white py-20">
+      <section className="bg-bg-primary py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {doctors.map((doctor) => (
               <div
                 key={doctor.name}
-                className="group rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg"
+                className="group rounded-2xl border border-border-default bg-bg-primary p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg"
               >
                 <div className="relative mx-auto mb-5 h-48 w-48 overflow-hidden rounded-2xl">
                   <Image
@@ -114,20 +114,20 @@ export default function DoctorsPage() {
                   />
                 </div>
                 <div className="text-center">
-                  <span className="inline-block rounded-full bg-primary-light px-3 py-0.5 text-xs font-medium text-primary-dark">
+                  <span className="inline-block rounded-full bg-primary-light dark:bg-primary-dark/30 px-3 py-0.5 text-xs font-medium dark:text-primary-light text-primary-dark">
                     {doctor.specialty}
                   </span>
-                  <h3 className="mt-3 text-lg font-semibold text-gray-900">
+                  <h3 className="mt-3 text-lg font-semibold text-text-primary">
                     {doctor.name}
                   </h3>
-                  <p className="text-sm text-gray-500">
+                  <p className="text-sm text-text-muted">
                     {doctor.experience} experience
                   </p>
-                  <p className="mt-2 text-sm leading-relaxed text-gray-500">
+                  <p className="mt-2 text-sm leading-relaxed text-text-muted">
                     {doctor.desc}
                   </p>
                   <a href="/contact"
-                    className="mt-4 inline-flex items-center gap-1.5 rounded-full bg-primary px-5 py-2 text-xs font-semibold text-white transition-all hover:bg-primary-dark"
+                    className="mt-4 inline-flex items-center gap-1.5 rounded-full bg-primary px-5 py-2 text-xs font-semibold text-white whitespace-nowrap transition-all hover:bg-primary-dark"
                   >
                     Book Appointment
                     <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
@@ -142,13 +142,13 @@ export default function DoctorsPage() {
       </section>
 
       {/* Why Our Doctors */}
-      <section className="bg-gray-50 py-20">
+      <section className="bg-bg-secondary py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900">
+            <h2 className="text-3xl font-bold tracking-tight text-text-primary">
               Why Our Doctors Are Different
             </h2>
-            <p className="mt-2 text-gray-600">
+            <p className="mt-2 text-text-secondary">
               Committed to excellence in patient care
             </p>
           </div>
@@ -169,9 +169,9 @@ export default function DoctorsPage() {
             ].map((item) => (
               <div
                 key={item.title}
-                className="rounded-2xl border border-gray-200 bg-white p-8 text-center shadow-sm"
+                className="rounded-2xl border border-border-default bg-bg-primary p-8 text-center shadow-sm"
               >
-                <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-primary-light text-primary">
+                <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-primary-light dark:bg-primary-dark/30 text-primary">
                   <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
                     <path
                       strokeLinecap="round"
@@ -180,10 +180,10 @@ export default function DoctorsPage() {
                     />
                   </svg>
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900">
+                <h3 className="text-lg font-semibold text-text-primary">
                   {item.title}
                 </h3>
-                <p className="mt-2 text-sm text-gray-500">{item.desc}</p>
+                <p className="mt-2 text-sm text-text-muted">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -201,7 +201,7 @@ export default function DoctorsPage() {
           </p>
           <div className="mt-8">
             <a href="/contact"
-              className="inline-flex items-center gap-2 rounded-full bg-white px-8 py-3 text-sm font-semibold text-primary shadow-md transition-all hover:bg-gray-100 hover:shadow-lg"
+              className="inline-flex items-center gap-2 rounded-full bg-white px-8 py-3 text-sm font-semibold text-primary whitespace-nowrap shadow-md transition-all hover:bg-gray-100 hover:shadow-lg"
             >
               Book an Appointment
               <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
