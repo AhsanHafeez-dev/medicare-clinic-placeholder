@@ -44,12 +44,16 @@ export default function ServicesPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-gradient-to-br dark:from-gray-900 dark:via-gray-800 dark:to-primary/20 from-gray-50 to-primary-light py-20 sm:py-28">
-        <div className="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-          <h1 className="text-4xl font-bold tracking-tight text-text-primary sm:text-5xl">
+      <section className="relative overflow-hidden bg-gradient-to-br from-gray-50 via-white to-primary-lighter dark:from-gray-950 dark:via-gray-900 dark:to-primary-darker/30 py-20 sm:py-28">
+        <div className="absolute -top-20 -right-20 h-60 w-60 rounded-full bg-primary/5 blur-3xl dark:bg-primary/10"></div>
+        <div className="mx-auto max-w-7xl px-6 text-center sm:px-8 lg:px-12">
+          <span className="inline-block rounded-full bg-primary-light/60 dark:bg-primary-dark/30 px-5 py-1.5 text-sm font-semibold uppercase tracking-wider dark:text-primary-light text-primary-dark mb-4 animate-fade-in-up">
+            Our Services
+          </span>
+          <h1 className="text-4xl font-bold tracking-tight text-text-primary sm:text-5xl animate-fade-in-up animate-delay-100">
             Our Services
           </h1>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-text-secondary">
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-text-secondary animate-fade-in-up animate-delay-200">
             Comprehensive medical services designed to meet all your healthcare
             needs under one roof.
           </p>
@@ -58,30 +62,43 @@ export default function ServicesPage() {
 
       {/* Services Grid */}
       <section className="bg-bg-primary py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {servicesList.map((service) => (
+            {servicesList.map((service, i) => (
               <div
                 key={service.title}
-                className="group overflow-hidden rounded-2xl border border-border-default bg-bg-primary shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg"
+                className="group animate-fade-in-up"
+                style={{ animationDelay: `${i * 0.1}s` }}
               >
-                <div className="relative h-48 overflow-hidden">
-                  <Image
-                    src={service.image}
-                    alt={service.title}
-                    fill
-                    className="object-cover transition-transform duration-300 group-hover:scale-110"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-lg font-semibold text-text-primary">
-                    {service.title}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-text-muted">
-                    {service.desc}
-                  </p>
+                <div className="overflow-hidden rounded-2xl border border-border-default bg-bg-primary shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-xl h-full flex flex-col">
+                  <div className="relative h-52 overflow-hidden shrink-0">
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-110"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent"></div>
+                    <div className="absolute bottom-4 left-4">
+                      <span className="inline-block rounded-full bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-primary shadow-sm">
+                        {service.title}
+                      </span>
+                    </div>
+                  </div>
+                  <div className="p-7 flex flex-col flex-1">
+                    <p className="text-sm leading-relaxed text-text-muted flex-1">
+                      {service.desc}
+                    </p>
+                    <div className="mt-5 pt-4 border-t border-border-default">
+                      <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary group-hover:gap-2.5 transition-all duration-200">
+                        Learn more
+                        <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                        </svg>
+                      </span>
+                    </div>
+                  </div>
                 </div>
               </div>
             ))}
@@ -90,9 +107,13 @@ export default function ServicesPage() {
       </section>
 
       {/* Why Choose Our Services */}
-      <section className="bg-bg-secondary py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
+      <section className="bg-bg-secondary py-20 relative overflow-hidden">
+        <div className="absolute bottom-0 left-0 h-64 w-64 rounded-full bg-primary/5 blur-3xl dark:bg-primary/10"></div>
+        <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
+          <div className="mx-auto max-w-2xl text-center animate-fade-in-up">
+            <span className="inline-block rounded-full bg-primary-light/60 dark:bg-primary-dark/30 px-5 py-1.5 text-sm font-semibold uppercase tracking-wider dark:text-primary-light text-primary-dark mb-4">
+              Why Choose Us
+            </span>
             <h2 className="text-3xl font-bold tracking-tight text-text-primary">
               Why Our Services Stand Out
             </h2>
@@ -129,13 +150,15 @@ export default function ServicesPage() {
                   </svg>
                 ),
               },
-            ].map((item) => (
-              <div key={item.title} className="rounded-2xl border border-border-default bg-bg-primary p-8 text-center shadow-sm">
-                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary-light dark:bg-primary-dark/30 text-primary">
-                  {item.icon}
+            ].map((item, i) => (
+              <div key={item.title} className="animate-fade-in-up" style={{ animationDelay: `${i * 0.1}s` }}>
+                <div className="rounded-2xl border border-border-default bg-bg-primary p-8 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl h-full">
+                  <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-primary-light to-primary-lighter dark:from-primary-dark/40 dark:to-primary-darker/30 text-primary transition-all duration-300 group-hover:from-primary group-hover:to-primary-dark group-hover:text-white">
+                    {item.icon}
+                  </div>
+                  <h3 className="text-lg font-semibold text-text-primary">{item.title}</h3>
+                  <p className="mt-2 text-sm text-text-muted">{item.desc}</p>
                 </div>
-                <h3 className="text-lg font-semibold text-text-primary">{item.title}</h3>
-                <p className="mt-2 text-sm text-text-muted">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -143,18 +166,20 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-gradient-to-r from-primary to-primary-dark py-20">
-        <div className="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold tracking-tight text-white">
+      <section className="relative overflow-hidden bg-gradient-to-r from-primary via-primary-dark to-primary-darker py-20">
+        <div className="absolute -top-20 -right-20 h-60 w-60 rounded-full bg-white/5 blur-3xl"></div>
+        <div className="absolute -bottom-20 -left-20 h-60 w-60 rounded-full bg-white/5 blur-3xl"></div>
+        <div className="mx-auto max-w-7xl px-6 text-center sm:px-8 lg:px-12 relative z-10">
+          <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl animate-fade-in-up">
             Need a Specific Service?
           </h2>
-          <p className="mx-auto mt-4 max-w-xl text-lg text-primary-light">
+          <p className="mx-auto mt-4 max-w-xl text-lg text-primary-light animate-fade-in-up animate-delay-100">
             Contact us to learn more about any of our services or to schedule a
             consultation.
           </p>
-          <div className="mt-8">
+          <div className="mt-8 animate-fade-in-up animate-delay-200">
             <a href="/contact"
-              className="inline-flex items-center gap-2 rounded-full bg-white px-8 py-3 text-sm font-semibold text-primary whitespace-nowrap shadow-md transition-all hover:bg-gray-100 hover:shadow-lg"
+              className="inline-flex items-center gap-2 rounded-full bg-white px-8 py-3 text-sm font-semibold text-primary whitespace-nowrap shadow-lg transition-all duration-200 hover:bg-gray-100 hover:shadow-xl hover:scale-105"
             >
               Get In Touch
               <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">

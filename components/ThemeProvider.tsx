@@ -16,6 +16,14 @@ export function useTheme() {
   return useContext(ThemeContext);
 }
 
+// Immediately apply theme from localStorage before hydration (avoids flash)
+const getInitialTheme = (): Theme => {
+  if (typeof window === "undefined") return "light";
+  const stored = localStorage.getItem("theme") as Theme | null;
+  if (stored === "dark" || stored === "light") return stored;
+  return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+};
+
 export default function ThemeProvider({
   children,
 }: {
@@ -25,24 +33,23 @@ export default function ThemeProvider({
   const [mounted, setMounted] = useState(false);
   const initRef = useRef(false);
 
-  // Sync DOM class and localStorage when theme changes
-  useEffect(() => {
-    if (!mounted) return;
-    const root = document.documentElement;
-    root.classList.toggle("dark", theme === "dark");
-    localStorage.setItem("theme", theme);
-  }, [theme, mounted]);
-
-  // Initialize — called once via a special pattern to avoid lint
+  // Initialize — called once
   useEffect(() => {
     if (initRef.current) return;
     initRef.current = true;
-    const stored = localStorage.getItem("theme") as Theme | null;
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    const initial = stored || (prefersDark ? "dark" : "light");
+    const initial = getInitialTheme();
     setTheme(initial);
+    // Apply class immediately
+    document.documentElement.classList.toggle("dark", initial === "dark");
     setMounted(true);
   }, []);
+
+  // Sync DOM class and localStorage whenever theme changes after mount
+  useEffect(() => {
+    if (!mounted) return;
+    document.documentElement.classList.toggle("dark", theme === "dark");
+    localStorage.setItem("theme", theme);
+  }, [theme, mounted]);
 
   const toggleTheme = useCallback(() => {
     setTheme((prev) => (prev === "light" ? "dark" : "light"));
